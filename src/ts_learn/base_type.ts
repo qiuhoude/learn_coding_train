@@ -105,3 +105,28 @@ let strLength2: number = (someValue as string).length
 {
     const arr: (number | string)[] = [1, 2, "3"]
 }
+
+{
+    // generics
+    interface Person {
+        name: string
+        age: number
+        gender: string
+    }
+
+    class Teacher {
+        constructor(private info: Person) {
+        }
+        getInfo<T extends keyof Person>(key: T): Person[T] {
+            return this.info[key]
+        }
+    }
+    class Test {
+        [key: string]: string | undefined
+    }
+    const t1 = new Teacher({ name: "qiu", age: 8, gender: "male" })
+    let field = t1.getInfo("age")
+    console.log(field)
+
+    // typescript 类型融合方式可以扩展老的库
+}

@@ -35,5 +35,4 @@ const sketch = (p5: P5) => {
 		myCircles.forEach(circle => circle.draw());
 	};
 };
-
-new P5(sketch, 'container');
+new P5(sketch, <HTMLElement>document.getElementById('container'));
